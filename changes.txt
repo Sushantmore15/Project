@@ -1,0 +1,68 @@
+#Frontend Changes
+File: Login.js
+Change: Update login functionality to send a POST request to the backend for authentication and save the JWT token in localStorage.
+
+File: SellerDashboard.js
+Change: Fetch seller-specific products and orders from the backend, allow product management (add, edit, delete).
+
+File:AdminPanel.js
+Change: Fetch user and order data from the backend and allow admins to manage orders and users.
+
+File: App.js
+Change: Add routing for Login, Seller Dashboard, and Admin Panel.
+
+File: api.js
+Change: Add API utility functions to handle requests (like fetch, POST, etc.) to the backend API and include the authorization token in headers.
+
+File:OrderList.js
+Change: Fetch and display a list of orders from the backend for the seller and admin.
+
+File: Register.js
+Change: Implement a register form that sends the user's details to the backend for creating a new user.
+
+File: ProductForm.js
+Change: Implement a form for adding new products to the database by sending data to the backend API.
+
+#Backend Changes (Node.js with SQL)
+
+File:index.js
+Change: Add MySQL database connection logic using mysql2 and set up routes for seller, admin, and user authentication.
+
+File:db.js
+Change: Create the connection to MySQL database with user credentials (host, username, password) and handle any connection errors.
+Example:
+
+File: backend/routes/userRoutes.js
+Change: Implement routes for user registration and login. Authenticate users and return JWT tokens for secure login.
+
+File: backend/routes/sellerRoutes.js
+Change: Create routes to handle seller-related functionality such as viewing and adding products, managing orders.
+
+File: backend/routes/adminRoutes.js
+Change: Create routes for admins to view and manage users, orders, and products.
+
+File: backend/models/User.js
+Change: Add SQL queries for user registration and login. Include role field for differentiating between admin, seller, and customer.
+
+File: backend/models/Product.js
+Change: Create a model for products, with SQL queries for adding, updating, and deleting products in the database.
+
+File: backend/models/Order.js
+Change: Create a model for orders, with SQL queries for storing order data and updating the order status.
+
+File: backend/middlewares/authMiddleware.js
+Change: Create middleware to check for JWT tokens in requests, ensuring only authenticated users can access protected routes.
+
+File: backend/package.json
+Change: Add necessary dependencies like mysql2, express, jsonwebtoken, dotenv, etc.
+
+File: backend/controllers/userController.js
+Change: Add functions for handling user login (validate credentials, issue JWT) and user registration (store in SQL database).
+
+File: backend/controllers/productController.js
+Change: Add functions to create, update, delete products in the database for sellers.
+
+File: backend/controllers/orderController.js
+Change: Add functions to manage orders, including viewing orders for sellers and admins, updating order statuses, etc.
+File: .env
+Change: Add the necessary environment variables for MySQL connection such as DB_HOST, DB_USER, DB_PASSWORD, and DB_NAME.
